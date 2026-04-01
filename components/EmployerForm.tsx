@@ -73,7 +73,7 @@ export const EmployerForm: React.FC<EmployerFormProps> = ({ onSubmit, initialDat
             </div>
             <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">ИНН *</label>
-                <input type="text" name="taxNumber" value={formData.taxNumber} onChange={handleChange} readOnly={isEditMode} className={`input ${errors.taxNumber ? 'border-red-500' : ''} ${isEditMode ? 'bg-gray-100' : ''}`} />
+                <input type="text" name="taxNumber" value={formData.taxNumber} onChange={handleChange} className={`input ${errors.taxNumber ? 'border-red-500' : ''}`} />
                 {errors.taxNumber && <p className="text-red-500 text-xs italic">{errors.taxNumber}</p>}
             </div>
             <div>

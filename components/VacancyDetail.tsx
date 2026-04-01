@@ -63,16 +63,20 @@ export const VacancyDetail: React.FC<VacancyDetailProps> = ({ vacancy, employer,
         </div>
         
         <div className="space-y-4">
-            {vacancy.contactPhone && (
+            {(vacancy.contactPhone || employer.contactPhonePrimary) && (
                 <div className="flex items-center">
-                    <PhoneIcon className="h-6 w-6 text-gray-500"/>
-                    <a href={`tel:${vacancy.contactPhone.replace(/\s/g, '')}`} className="ml-3 text-lg text-blue-700 hover:underline">{vacancy.contactPhone}</a>
+                    <PhoneIcon className="h-6 w-6 text-gray-400"/>
+                    <a href={`tel:${(vacancy.contactPhone || employer.contactPhonePrimary).replace(/\s/g, '')}`} className="ml-3 text-lg text-blue-700 hover:underline">
+                        {vacancy.contactPhone || employer.contactPhonePrimary}
+                    </a>
                 </div>
             )}
-            {vacancy.contactEmail && (
+            {(vacancy.contactEmail || employer.contactEmail) && (
                  <div className="flex items-center">
-                    <EnvelopeIcon className="h-6 w-6 text-gray-500"/>
-                    <a href={`mailto:${vacancy.contactEmail}`} className="ml-3 text-lg text-blue-700 hover:underline">{vacancy.contactEmail}</a>
+                    <EnvelopeIcon className="h-6 w-6 text-gray-400"/>
+                    <a href={`mailto:${vacancy.contactEmail || employer.contactEmail}`} className="ml-3 text-lg text-blue-700 hover:underline">
+                        {vacancy.contactEmail || employer.contactEmail}
+                    </a>
                 </div>
             )}
             {employer.website && (
