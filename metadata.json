@@ -1,0 +1,5 @@
+{
+  "name": "Med-Hunters",
+  "description": "A web application for Russian-speaking healthcare organizations to publish vacancies for medical personnel. Candidates browse vacancies and contact employers directly.",
+  "requestFramePermissions": []
+}
