@@ -41,9 +41,14 @@ const App: React.FC = () => {
   }, []);
   
   const handleNavigate = useCallback((newView: View) => {
-    if (newView === 'admin' && !isAdmin) {
+    if (newView === 'admin') {
+      if (isAdmin) {
+        setIsAdmin(false);
+        setView('list');
+      } else {
         setView('login');
-        return;
+      }
+      return;
     }
     setSelectedVacancyId(null);
     setView(newView);
