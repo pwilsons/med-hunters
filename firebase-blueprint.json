@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "Employer": {
+      "title": "Employer",
+      "description": "Information about a medical organization.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "organizationName": { "type": "string" },
+        "taxNumber": { "type": "string" },
+        "officialAddress": { "type": "string" },
+        "contactPhonePrimary": { "type": "string" },
+        "contactPhoneSecondary": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "website": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["organizationName", "taxNumber", "officialAddress", "contactPhonePrimary", "contactEmail"]
+    },
+    "Vacancy": {
+      "title": "Vacancy",
+      "description": "A job opening posted by an employer.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "positionCategory": { "type": "string" },
+        "city": { "type": "string" },
+        "employmentType": { "type": "string" },
+        "workSchedule": { "type": "string" },
+        "salary": { "type": "string" },
+        "experienceRequired": { "type": "string" },
+        "educationRequired": { "type": "string" },
+        "description": { "type": "string" },
+        "employerId": { "type": "string" },
+        "contactPhone": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "contactNote": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["jobTitle", "positionCategory", "city", "employmentType", "description", "employerId"]
+    }
+  },
+  "firestore": {
+    "/employers/{employerId}": {
+      "schema": "Employer",
+      "description": "Collection of employers."
+    },
+    "/vacancies/{vacancyId}": {
+      "schema": "Vacancy",
+      "description": "Collection of vacancies."
+    }
+  }
+}

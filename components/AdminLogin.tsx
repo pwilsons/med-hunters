@@ -4,10 +4,11 @@ import { ArrowLeftIcon, EyeIcon, EyeSlashIcon } from './IconComponents';
 
 interface AdminLoginProps {
     onLoginAttempt: (passwordOne: string, passwordTwo: string) => boolean;
+    onGoogleLogin: () => void;
     onBack: () => void;
 }
 
-export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginAttempt, onBack }) => {
+export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginAttempt, onGoogleLogin, onBack }) => {
     const [passwordOne, setPasswordOne] = useState('');
     const [passwordTwo, setPasswordTwo] = useState('');
     const [showPasswordOne, setShowPasswordOne] = useState(false);
@@ -81,12 +82,30 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginAttempt, onBack }
                     
                     {error && <p className="text-sm text-center text-red-600">{error}</p>}
 
-                    <div>
+                    <div className="space-y-4">
                         <button
                             type="submit"
                             className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                         >
                             Войти
+                        </button>
+                        
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div className="relative flex justify-center text-sm">
+                                <span className="px-2 bg-white text-gray-500">Или</span>
+                            </div>
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={onGoogleLogin}
+                            className="w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-lg font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                        >
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5 mr-3" />
+                            Войти через Google
                         </button>
                     </div>
                 </form>
