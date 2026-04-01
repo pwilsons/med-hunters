@@ -42,9 +42,6 @@ export const VacancyList: React.FC<VacancyListProps> = ({ vacancies, employers, 
   return (
     <div className="space-y-8">
       <div>
-        <div className="mb-2">
-            <h1 className="text-xl md:text-2xl font-normal text-gray-800">Найти вакансию</h1>
-        </div>
         <p className="text-lg text-gray-600">Актуальные предложения от ведущих медицинских организаций.</p>
       </div>
 
